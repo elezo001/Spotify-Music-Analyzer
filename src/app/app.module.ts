@@ -6,17 +6,19 @@ import { RouterModule, Routes} from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { SearchComponent } from './components/search/search.component';
 import { AboutComponent } from './components/about/about.component';
 import { PageNotFoundComponent } from './components/PageNotFound/pagenotfound.component';
 
 const appRoutes: Routes = [
   { path: 'about', component: AboutComponent},
+  { path: '', component: SearchComponent},
   { path: '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({
   declarations: [
-    AppComponent, NavbarComponent, AboutComponent, PageNotFoundComponent
+    AppComponent, NavbarComponent, AboutComponent, SearchComponent, PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

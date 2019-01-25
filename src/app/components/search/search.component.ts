@@ -6,6 +6,7 @@ import { Track } from '../../../../Tracks';
   moduleId: module.id,
   selector: 'search',
   templateUrl: 'search.component.html',
+  styleUrls: ['/search.component.css'],
   providers:[SpotifyService]
 })
 export class SearchComponent {

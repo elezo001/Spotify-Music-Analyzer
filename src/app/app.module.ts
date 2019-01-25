@@ -10,6 +10,9 @@ import { SearchComponent } from './components/search/search.component';
 import { AboutComponent } from './components/about/about.component';
 import { PageNotFoundComponent } from './components/PageNotFound/pagenotfound.component';
 
+import { Track } from '../../Tracks';
+import { Album } from '../../Albums';
+
 const appRoutes: Routes = [
   { path: 'about', component: AboutComponent},
   { path: '', component: SearchComponent},

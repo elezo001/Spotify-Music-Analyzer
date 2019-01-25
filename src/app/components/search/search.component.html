@@ -2,6 +2,18 @@
 <p class="head">Use this application to provide analytics of your favorite music!</p>
 <form>
   <div class="form-group">
-    <input type="text" name="searchString" [(ngModel)]="searchString" (keyup)="searchMusic()" class="form-control" placeholder="Search Music...">
+    <input type="text" name="searchString" [(ngModel)]="searchString" (keyup)="searchMusic()" class="form-control" autocomplete="off" placeholder="Search Music...">
   </div>
 </form>
+
+<div *ngIf="searchResults">
+  <div *ngFor="let res of searchResults">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="search-res well">
+          <h3>{{res.name}} - {{res.artists[0].name}}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

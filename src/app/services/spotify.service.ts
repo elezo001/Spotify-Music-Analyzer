@@ -23,7 +23,7 @@ export class SpotifyService{
     headers.append('Content-Type' , 'application/x-www-form-urlencoded');
     let url = 'https://accounts.spotify.com/api/token';
 
-    return this._http.post(url, params , {headers : headers})
+    return this._http.post(url, params, {headers : headers})
       .map(res=> res.json());
   }
 

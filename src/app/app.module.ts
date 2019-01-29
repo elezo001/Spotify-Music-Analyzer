@@ -7,6 +7,7 @@ import { RouterModule, Routes} from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchComponent } from './components/search/search.component';
+import { TrackComponent } from './components/track/track.component';
 import { AboutComponent } from './components/about/about.component';
 import { PageNotFoundComponent } from './components/PageNotFound/pagenotfound.component';
 
@@ -15,13 +16,14 @@ import { Album } from '../../Albums';
 
 const appRoutes: Routes = [
   { path: 'about', component: AboutComponent},
+  { path: 'track/:id', component: TrackComponent},
   { path: '', component: SearchComponent},
   { path: '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({
   declarations: [
-    AppComponent, NavbarComponent, AboutComponent, SearchComponent, PageNotFoundComponent
+    AppComponent, NavbarComponent, AboutComponent, SearchComponent, TrackComponent, PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

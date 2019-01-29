@@ -1,5 +1,5 @@
-<h1>Analyze your song below</h1>
-<p class="head">Use this application to provide analytics of your favorite music!</p>
+<h1 style="color:#f8f8ff">Analyze your song below</h1>
+<p class="head" style="color:#ffffff">Use this application to provide analytics of your favorite music!</p>
 <form>
   <div class="form-group">
     <input type="text" name="searchString" [(ngModel)]="searchString" (keyup)="searchMusic()" class="form-control" autocomplete="off" placeholder="Search Music...">
@@ -11,7 +11,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="search-res well">
-          <h3>{{res.name}} - {{res.artists[0].name}}</h3>
+          <h3><a routerLink="/track/{{res.id}}">{{res.name}} - {{res.artists[0].name}}</a></h3>
         </div>
       </div>
     </div>

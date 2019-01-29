@@ -4,6 +4,8 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class SpotifyService{
+  private trackUrl: string;
+
   private searchUrl: string;
   private access_token: string;
   private client_id = 'ea90c27b2b7f4d80a9813b4362b0be18'; // Your client id
@@ -12,6 +14,13 @@ export class SpotifyService{
 
   constructor(private _http:Http){
 
+  }
+
+  getTrack(id: string, token: string){
+    this.trackUrl = 'https://api.spotify.com/v1/tracks/' +id;
+    let headers = new Headers();
+    headers.append('Authorization', 'Bearer ' + token);
+    return this._http.get(this.trackUrl, {headers: headers}).map(res => res.json());
   }
 
   getToken(){
@@ -24,7 +33,7 @@ export class SpotifyService{
     let url = 'https://accounts.spotify.com/api/token';
 
     return this._http.post(url, params, {headers : headers})
-      .map(res=> res.json());
+      .map(res => res.json());
   }
 
   searchMusic(str: string, type='track', token:string){

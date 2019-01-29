@@ -13,6 +13,7 @@ import { PageNotFoundComponent } from './components/PageNotFound/pagenotfound.co
 
 import { Track } from '../../Tracks';
 import { Album } from '../../Albums';
+import { AudioFeatures } from '../../AudioFeatures';
 
 const appRoutes: Routes = [
   { path: 'about', component: AboutComponent},

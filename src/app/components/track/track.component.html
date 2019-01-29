@@ -1,3 +1,15 @@
-<div *ngIf="track">
-  {{track.name}}
+<div *ngIf="audioFeatures">
+  duration_ms: {{audioFeatures.duration_ms}}
+  key: {{audioFeatures.key}}
+  mode: {{audioFeatures.mode}}
+  time_signature: {{audioFeatures.time_signature}}
+  acousticness: {{audioFeatures.acousticness}}
+  danceability: {{audioFeatures.danceability}}
+  energy: {{audioFeatures.energy}}
+  instrumentalness: {{audioFeatures.instrumentalness}}
+  liveness: {{audioFeatures.liveness}}
+  loudness: {{audioFeatures.loudness}}
+  speechiness: {{audioFeatures.speechiness}}
+  valence: {{audioFeatures.valence}}
+  tempo: {{audioFeatures.tempo}}
 </div>

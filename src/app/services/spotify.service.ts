@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class SpotifyService{
   private trackUrl: string;
+  private audioFeaturesUrl: string;
 
   private searchUrl: string;
   private access_token: string;
@@ -14,6 +15,13 @@ export class SpotifyService{
 
   constructor(private _http:Http){
 
+  }
+
+  getAudioFeatures(id: string, token:string){
+    this.audioFeaturesUrl = 'https://api.spotify.com/v1/audio-features/' +id;
+    let headers = new Headers();
+    headers.append('Authorization', 'Bearer ' + token);
+    return this._http.get(this.audioFeaturesUrl, {headers: headers}).map(res => res.json());
   }
 
   getTrack(id: string, token: string){
@@ -37,7 +45,7 @@ export class SpotifyService{
   }
 
   searchMusic(str: string, type='track', token:string){
-    this.searchUrl = 'https://api.spotify.com/v1/search?q=' +str+ '&offset=0&limit=5&type='+type+ '&market=US';
+    this.searchUrl = 'https://api.spotify.com/v1/search?q=' +str+ '&offset=0&limit=10&type='+type+ '&market=US';
     let headers = new Headers();
     headers.append('Authorization', 'Bearer ' + token);
     return this._http.get(this.searchUrl, {headers: headers}).map(res => res.json());

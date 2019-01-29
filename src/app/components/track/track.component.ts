@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SpotifyService } from '../../services/spotify.service';
 import { ActivatedRoute } from '@angular/router';
 import { Track } from '../../../../Tracks';
+import { AudioFeatures } from '../../../../AudioFeatures';
 
 @Component({
   moduleId: module.id,
@@ -12,6 +13,7 @@ import { Track } from '../../../../Tracks';
 export class TrackComponent implements OnInit {
 
   id:string;
+  audioFeatures: AudioFeatures[];
   track: Track[];
 
   constructor(private _spotifyService: SpotifyService, private _route:ActivatedRoute){
@@ -23,9 +25,9 @@ export class TrackComponent implements OnInit {
     this._route.params
       .map(params => params['id'])
       .subscribe((id => {
-        this._spotifyService.getToken().subscribe(res => {this._spotifyService.getTrack(id, res.access_token)
-          .subscribe(track => {
-            this.track = track;
+        this._spotifyService.getToken().subscribe(res => {this._spotifyService.getAudioFeatures(id, res.access_token)
+          .subscribe(trackFeatures => {
+            this.audioFeatures = trackFeatures;
           })
       })
   }))

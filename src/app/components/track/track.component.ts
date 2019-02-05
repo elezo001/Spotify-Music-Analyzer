@@ -31,5 +31,18 @@ export class TrackComponent implements OnInit {
           })
       })
   }))
+
+  this._route.params
+    .map(params => params['id'])
+    .subscribe((id => {
+      this._spotifyService.getToken().subscribe(res => {this._spotifyService.getTrack(id, res.access_token)
+        .subscribe(track => {
+          this.track = track;
+          console.log(track);
+        })
+    })
+}))
+
 }
+
 }

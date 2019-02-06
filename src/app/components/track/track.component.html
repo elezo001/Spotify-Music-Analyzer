@@ -1,22 +1,24 @@
 <h1 style="color:#f8f8ff">Analytics</h1>
-<div *ngIf="audioFeatures">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="search-res well">
-        <h3>{{track.artists[0].name}} - {{track.name}}</h3>
-        duration_ms: {{audioFeatures.duration_ms}}
-        key: {{audioFeatures.key}}
-        mode: {{audioFeatures.mode}}
-        time_signature: {{audioFeatures.time_signature}}
-        acousticness: {{audioFeatures.acousticness}}
-        danceability: {{audioFeatures.danceability}}
-        energy: {{audioFeatures.energy}}
-        instrumentalness: {{audioFeatures.instrumentalness}}
-        liveness: {{audioFeatures.liveness}}
-        loudness: {{audioFeatures.loudness}}
-        speechiness: {{audioFeatures.speechiness}}
-        valence: {{audioFeatures.valence}}
-        tempo: {{audioFeatures.tempo}}
+<div *ngIf="tracks">
+  <div *ngFor="let track of tracks">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="search-res well">
+          <h3>{{track.artistName}} - {{track.name}}</h3>
+            duration_ms: {{audioFeatures.duration_ms}}
+            key: {{audioFeatures.key}}
+            mode: {{audioFeatures.mode}}
+            time_signature: {{audioFeatures.time_signature}}
+            acousticness: {{audioFeatures.acousticness}}
+            danceability: {{audioFeatures.danceability}}
+            energy: {{audioFeatures.energy}}
+            instrumentalness: {{audioFeatures.instrumentalness}}
+            liveness: {{audioFeatures.liveness}}
+            loudness: {{audioFeatures.loudness}}
+            speechiness: {{audioFeatures.speechiness}}
+            valence: {{audioFeatures.valence}}
+            tempo: {{audioFeatures.tempo}}
+        </div>
       </div>
     </div>
   </div>

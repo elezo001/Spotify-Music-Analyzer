@@ -3,9 +3,10 @@ import { Track } from '../../../Tracks';
 
 @Injectable()
 export class TrackArrayService{
-  public trackList: Track[] = [];
+  public trackList: Track[];
 
   constructor(){
+    this.trackList = [];
   }
 
   getLength(){

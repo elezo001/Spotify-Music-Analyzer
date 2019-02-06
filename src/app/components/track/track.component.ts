@@ -9,7 +9,7 @@ import { AudioFeatures } from '../../../../AudioFeatures';
   moduleId: module.id,
   selector: 'track',
   templateUrl: 'track.component.html',
-  providers: [SpotifyService, TrackArrayService]
+  providers: [SpotifyService]
 })
 export class TrackComponent implements OnInit {
 
@@ -40,12 +40,13 @@ export class TrackComponent implements OnInit {
       this._spotifyService.getToken().subscribe(res => {this._spotifyService.getTrack(id, res.access_token)
         .subscribe(trackResponse => {
           this._trackList.addToList({'id':trackResponse.id, 'name':trackResponse.name, 'artistName':trackResponse.artists[0].name});
+          console.log(this._trackList.getLength());
           this.tracks = this._trackList.getTrackList();
         })
     })
 }))
 
-  console.log(this._trackList.getLength());
+        console.log("After add to list length: " + this._trackList.getLength());
 
 }
 

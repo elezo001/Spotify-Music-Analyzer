@@ -27,4 +27,8 @@ export class TrackArrayService{
     return this.trackList;
   }
 
+  deleteTrack(track:any, index: number){
+    this.trackList.splice(index, 1);
+  }
+
 }

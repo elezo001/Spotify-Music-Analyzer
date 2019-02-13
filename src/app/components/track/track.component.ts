@@ -9,6 +9,7 @@ import { AudioFeatures } from '../../../../AudioFeatures';
   moduleId: module.id,
   selector: 'track',
   templateUrl: 'track.component.html',
+  styleUrls: ['./track.component.css'],
   providers: [SpotifyService]
 })
 export class TrackComponent implements OnInit {
@@ -20,6 +21,11 @@ export class TrackComponent implements OnInit {
 
   constructor(private _spotifyService: SpotifyService, private _route:ActivatedRoute, private _trackList:TrackArrayService){
 
+  }
+
+  public removeTrack(track, index){
+    this._trackList.deleteTrack(track, index);
+    console.log(this._trackList.getLength());
   }
 
   ngOnInit(){

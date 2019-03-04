@@ -5,19 +5,19 @@
       <div class="col-md-12">
         <div class="search-res well">
           <h3>{{track.artistName}} - {{track.name}}</h3>
-            duration_ms: {{audioFeatures.duration_ms}}
-            key: {{audioFeatures.key}}
-            mode: {{audioFeatures.mode}}
-            time_signature: {{audioFeatures.time_signature}}
-            acousticness: {{audioFeatures.acousticness}}
-            danceability: {{audioFeatures.danceability}}
-            energy: {{audioFeatures.energy}}
-            instrumentalness: {{audioFeatures.instrumentalness}}
-            liveness: {{audioFeatures.liveness}}
-            loudness: {{audioFeatures.loudness}}
-            speechiness: {{audioFeatures.speechiness}}
-            valence: {{audioFeatures.valence}}
-            tempo: {{audioFeatures.tempo}}
+            duration_ms: {{track.audioFeatures.duration_ms}}
+            key: {{track.audioFeatures.key}}
+            mode: {{track.audioFeatures.mode}}
+            time_signature: {{track.audioFeatures.time_signature}}
+            acousticness: {{track.audioFeatures.acousticness}}
+            danceability: {{track.audioFeatures.danceability}}
+            energy: {{track.audioFeatures.energy}}
+            instrumentalness: {{track.audioFeatures.instrumentalness}}
+            liveness: {{track.audioFeatures.liveness}}
+            loudness: {{track.audioFeatures.loudness}}
+            speechiness: {{track.audioFeatures.speechiness}}
+            valence: {{track.audioFeatures.valence}}
+            tempo: {{track.audioFeatures.tempo}}
             <div id="deleteTrackButton">
             <button type="submit" (click)="removeTrack(track, i)" class="btn btn-danger btn-sm">Delete</button>
             </div>

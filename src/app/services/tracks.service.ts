@@ -13,6 +13,10 @@ export class TrackArrayService{
     return this.trackList.length;
   }
 
+  getTrack(index: number){
+    return this.trackList[index];
+  }
+
   consoleLogTracks(){
     this.trackList.forEach(track => {
       console.log(track.name);

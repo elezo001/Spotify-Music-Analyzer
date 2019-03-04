@@ -10,7 +10,7 @@ export class SpotifyService{
   private searchUrl: string;
   private access_token: string;
   private client_id = 'ea90c27b2b7f4d80a9813b4362b0be18'; // Your client id
-  private client_secret = '190293a6ab8e44b5a6a266ce47e8ab84'; // Your secret
+  private client_secret = 'eacdcc4600d94b3783d1e8232a1f97ef'; // Your secret
   private encoded = btoa(this.client_id + ':' + this.client_secret);
 
   constructor(private _http:Http){
@@ -38,7 +38,7 @@ export class SpotifyService{
     let headers = new Headers();
     headers.append('Authorization', 'Basic ' + this.encoded);
     headers.append('Content-Type' , 'application/x-www-form-urlencoded');
-    let url = 'https://accounts.spotify.com/api/token';
+    let url = 'https://cors-anywhere.herokuapp.com/https://accounts.spotify.com/api/token';
 
     return this._http.post(url, params, {headers : headers})
       .map(res => res.json());

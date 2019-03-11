@@ -16,7 +16,7 @@ export class TrackComponent implements OnInit {
 
   id:string;
   artistName: string;
-  audioFeatures: AudioFeatures[] = [];
+  public audioFeatures: AudioFeatures;
   tracks: Track[] = [];
 
   constructor(private _spotifyService: SpotifyService, private _route:ActivatedRoute, private _trackList:TrackArrayService){
@@ -27,33 +27,25 @@ export class TrackComponent implements OnInit {
     console.log(this._trackList.getLength());
   }
 
+
   ngOnInit(){
 
-  this._route.params
+    this._route.params
       .map(params => params['id'])
       .subscribe((id => {
         this._spotifyService.getToken().subscribe(res => {this._spotifyService.getAudioFeatures(id, res.access_token)
-          .subscribe(trackFeatures => {
-            this.audioFeatures = trackFeatures;
-            console.log(this.audioFeatures);
+          .subscribe(audioData => {
+            this._spotifyService.getToken().subscribe(res => {this._spotifyService.getTrack(id, res.access_token)
+              .subscribe(trackResponse => {
+                this._trackList.addToList({'id':trackResponse.id, 'name':trackResponse.name, 'artistName':trackResponse.artists[0].name, 'audioFeatures':audioData});
+                console.log("Tracklist length: " + this._trackList.getLength());
+                this.tracks = this._trackList.getTrackList();
           })
       })
-  }))
-
-  this._route.params
-    .map(params => params['id'])
-    .subscribe((id => {
-      this._spotifyService.getToken().subscribe(res => {this._spotifyService.getTrack(id, res.access_token)
-        .subscribe(trackResponse => {
-          this._trackList.addToList({'id':trackResponse.id, 'name':trackResponse.name, 'artistName':trackResponse.artists[0].name, 'audioFeatures':this.audioFeatures});
-          console.log(this._trackList.getLength());
-          //console.log(this._trackList.getTrack(this._trackList.getLength() - 1).audioFeatures);
-          this.tracks = this._trackList.getTrackList();
-        })
     })
+  })
 }))
-
-        console.log("After add to list length: " + this._trackList.getLength());
+        //console.log("After add to list length: " + this._trackList.getLength());
 
 }
 

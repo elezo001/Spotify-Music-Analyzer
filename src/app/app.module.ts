@@ -11,6 +11,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchComponent } from './components/search/search.component';
 import { TrackComponent } from './components/track/track.component';
 import { AboutComponent } from './components/about/about.component';
+import { AnalyticsComponent } from './components/analytics/analytics.component';
 import { PageNotFoundComponent } from './components/PageNotFound/pagenotfound.component';
 
 import { Track } from '../../Tracks';
@@ -19,6 +20,7 @@ import { AudioFeatures } from '../../AudioFeatures';
 
 const appRoutes: Routes = [
   { path: 'about', component: AboutComponent},
+  { path: 'analytics', component: AnalyticsComponent},
   { path: 'track/:id', component: TrackComponent},
   { path: '', component: SearchComponent},
   { path: '**', component: PageNotFoundComponent}
@@ -26,7 +28,7 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent, NavbarComponent, AboutComponent, SearchComponent, TrackComponent, PageNotFoundComponent
+    AppComponent, NavbarComponent, AboutComponent, SearchComponent, TrackComponent, AnalyticsComponent, PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

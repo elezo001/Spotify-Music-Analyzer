@@ -6,6 +6,7 @@ import 'rxjs/add/operator/map';
 export class SpotifyService{
   private trackUrl: string;
   private audioFeaturesUrl: string;
+  private artistUrl: string;
 
   private searchUrl: string;
   private access_token: string;
@@ -22,6 +23,13 @@ export class SpotifyService{
     let headers = new Headers();
     headers.append('Authorization', 'Bearer ' + token);
     return this._http.get(this.audioFeaturesUrl, {headers: headers}).map(res => res.json());
+  }
+
+  getArtist(id: string, token: string){
+    this.artistUrl = 'https://api.spotify.com/v1/artists/' + id;
+    let headers = new Headers();
+    headers.append('Authorization', 'Bearer ' + token);
+    return this._http.get(this.artistUrl, {headers: headers}).map(res => res.json());
   }
 
   getTrack(id: string, token: string){

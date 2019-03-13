@@ -2,5 +2,9 @@ p {color: lightgrey}
 h4 {color: lightgrey}
 
 #descriptionRow {
-    border: 1px solid white;
+    border-bottom: .1px solid grey;
+}
+
+#initialPadding{
+  padding-top:10px;
 }

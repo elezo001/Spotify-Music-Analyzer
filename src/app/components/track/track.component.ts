@@ -37,10 +37,13 @@ export class TrackComponent implements OnInit {
           .subscribe(audioData => {
             this._spotifyService.getToken().subscribe(res => {this._spotifyService.getTrack(id, res.access_token)
               .subscribe(trackResponse => {
-                this._trackList.addToList({'id':trackResponse.id, 'name':trackResponse.name, 'artistName':trackResponse.artists[0].name, 'audioFeatures':audioData});
-                console.log("Tracklist length: " + this._trackList.getLength());
-                this.tracks = this._trackList.getTrackList();
+                this._spotifyService.getToken().subscribe(res => {this._spotifyService.getArtist(trackResponse.artists[0].id, res.access_token)
+                  .subscribe(artist => {
+                    this._trackList.addToList({'id':trackResponse.id, 'name':trackResponse.name, 'artist': trackResponse.artists[0], 'genre':artist.genres[0], 'audioFeatures':audioData});
+                    this.tracks = this._trackList.getTrackList();
+            })
           })
+        })
       })
     })
   })

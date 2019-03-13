@@ -4,7 +4,8 @@
     <div class="row">
       <div class="col-md-12">
         <div class="search-res well">
-          <h3>{{track.artistName}} - {{track.name}}</h3>
+          <h3>{{track.artist.name}} - {{track.name}}</h3>
+          <h4>Genre: {{track.genre}}</h4>
             duration_ms: {{track.audioFeatures.duration_ms}}
             key: {{track.audioFeatures.key}}
             mode: {{track.audioFeatures.mode}}

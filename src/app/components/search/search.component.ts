@@ -19,6 +19,7 @@ export class SearchComponent {
   searchMusic(){
     this._spotifyService.getToken().subscribe(res => {this._spotifyService.searchMusic(this.searchString, 'track', res.access_token).subscribe(res => {
       this.searchResults = (res.tracks.items);
+      console.log(res);
     })
   })
 }
